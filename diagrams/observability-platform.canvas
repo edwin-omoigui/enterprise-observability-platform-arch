@@ -1,149 +1,26 @@
 {
-  "nodes": [
-    {
-      "id": "app",
-      "type": "text",
-      "text": "Sample App\nMetrics \u2022 Logs \u2022 Traces",
-      "x": 0,
-      "y": 170,
-      "width": 240,
-      "height": 100,
-      "color": "2"
-    },
-    {
-      "id": "alloy",
-      "type": "text",
-      "text": "Grafana Alloy\nCollection & Routing",
-      "x": 330,
-      "y": 160,
-      "width": 250,
-      "height": 120,
-      "color": "1"
-    },
-    {
-      "id": "prom",
-      "type": "text",
-      "text": "Prometheus\nMetrics",
-      "x": 700,
-      "y": 20,
-      "width": 220,
-      "height": 80,
-      "color": "4"
-    },
-    {
-      "id": "loki",
-      "type": "text",
-      "text": "Loki\nLogs",
-      "x": 700,
-      "y": 170,
-      "width": 220,
-      "height": 80,
-      "color": "3"
-    },
-    {
-      "id": "tempo",
-      "type": "text",
-      "text": "Tempo\nTraces",
-      "x": 700,
-      "y": 320,
-      "width": 220,
-      "height": 80,
-      "color": "5"
-    },
-    {
-      "id": "grafana",
-      "type": "text",
-      "text": "Grafana\nDashboards & Explore",
-      "x": 1030,
-      "y": 160,
-      "width": 240,
-      "height": 120,
-      "color": "6"
-    },
-    {
-      "id": "headlamp",
-      "type": "text",
-      "text": "Headlamp\nKubernetes UI",
-      "x": 1030,
-      "y": 360,
-      "width": 240,
-      "height": 80,
-      "color": "4"
-    },
-    {
-      "id": "teams",
-      "type": "text",
-      "text": "Platform & App Teams\nTroubleshooting\nReliability",
-      "x": 1360,
-      "y": 210,
-      "width": 260,
-      "height": 120,
-      "color": "6"
-    }
-  ],
-  "edges": [
-    {
-      "id": "e1",
-      "fromNode": "app",
-      "fromSide": "right",
-      "toNode": "alloy",
-      "toSide": "left"
-    },
-    {
-      "id": "e2",
-      "fromNode": "alloy",
-      "fromSide": "right",
-      "toNode": "prom",
-      "toSide": "left"
-    },
-    {
-      "id": "e3",
-      "fromNode": "alloy",
-      "fromSide": "right",
-      "toNode": "loki",
-      "toSide": "left"
-    },
-    {
-      "id": "e4",
-      "fromNode": "alloy",
-      "fromSide": "right",
-      "toNode": "tempo",
-      "toSide": "left"
-    },
-    {
-      "id": "e5",
-      "fromNode": "prom",
-      "fromSide": "right",
-      "toNode": "grafana",
-      "toSide": "left"
-    },
-    {
-      "id": "e6",
-      "fromNode": "loki",
-      "fromSide": "right",
-      "toNode": "grafana",
-      "toSide": "left"
-    },
-    {
-      "id": "e7",
-      "fromNode": "tempo",
-      "fromSide": "right",
-      "toNode": "grafana",
-      "toSide": "left"
-    },
-    {
-      "id": "e8",
-      "fromNode": "grafana",
-      "fromSide": "right",
-      "toNode": "teams",
-      "toSide": "left"
-    },
-    {
-      "id": "e9",
-      "fromNode": "headlamp",
-      "fromSide": "right",
-      "toNode": "teams",
-      "toSide": "left"
-    }
-  ]
+	"nodes":[
+		{"id":"grafana","type":"text","text":"Grafana\n\nDashboards\nCorrelation\nExplore\nSLO Views","x":1420,"y":140,"width":320,"height":240,"color":"6"},
+		{"id":"users","type":"text","text":"Platform Teams\nSRE\nDevOps\nDevelopers\nOperations","x":1880,"y":210,"width":300,"height":220,"color":"6"},
+		{"id":"alloy","type":"text","text":"Grafana Alloy\n\nTelemetry Collection\nDiscovery\nRouting\nEnrichment","x":430,"y":150,"width":320,"height":230,"color":"1"},
+		{"id":"k8s","type":"text","text":"Kubernetes Platform\n\nNodes\nPods\nServices\nNamespaces","x":430,"y":530,"width":320,"height":240,"color":"7"},
+		{"id":"loki","type":"text","text":"Loki\n\nLog Aggregation\nLogQL\nRetention","x":940,"y":163,"width":260,"height":195,"color":"3"},
+		{"id":"prom","type":"text","text":"Prometheus\n\nMetrics Storage\nAlert Rules\nPromQL","x":940,"y":-80,"width":260,"height":220,"color":"4"},
+		{"id":"tempo","type":"text","text":"Tempo\n\nDistributed Tracing\nTrace Search\nService Flows","x":940,"y":380,"width":260,"height":200,"color":"5"},
+		{"id":"app","type":"text","text":"Sample Application\n\nMetrics\nLogs\nTraces","x":40,"y":165,"width":260,"height":200,"color":"2"},
+		{"id":"headlamp","type":"text","text":"Headlamp\n\nKubernetes UI\nCluster Visibility\nWorkload Operations","x":1420,"y":545,"width":320,"height":210,"color":"4"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"app","fromSide":"right","toNode":"alloy","toSide":"left"},
+		{"id":"e2","fromNode":"alloy","fromSide":"right","toNode":"prom","toSide":"left"},
+		{"id":"e3","fromNode":"alloy","fromSide":"right","toNode":"loki","toSide":"left"},
+		{"id":"e4","fromNode":"alloy","fromSide":"right","toNode":"tempo","toSide":"left"},
+		{"id":"e5","fromNode":"prom","fromSide":"right","toNode":"grafana","toSide":"left"},
+		{"id":"e6","fromNode":"loki","fromSide":"right","toNode":"grafana","toSide":"left"},
+		{"id":"e7","fromNode":"tempo","fromSide":"right","toNode":"grafana","toSide":"left"},
+		{"id":"e8","fromNode":"k8s","fromSide":"top","toNode":"alloy","toSide":"bottom"},
+		{"id":"e9","fromNode":"k8s","fromSide":"right","toNode":"headlamp","toSide":"left"},
+		{"id":"e10","fromNode":"grafana","fromSide":"right","toNode":"users","toSide":"left"},
+		{"id":"e11","fromNode":"headlamp","fromSide":"right","toNode":"users","toSide":"left"}
+	]
 }
