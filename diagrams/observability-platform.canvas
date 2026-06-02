@@ -1,0 +1,149 @@
+{
+  "nodes": [
+    {
+      "id": "app",
+      "type": "text",
+      "text": "Sample App\nMetrics \u2022 Logs \u2022 Traces",
+      "x": 0,
+      "y": 170,
+      "width": 240,
+      "height": 100,
+      "color": "2"
+    },
+    {
+      "id": "alloy",
+      "type": "text",
+      "text": "Grafana Alloy\nCollection & Routing",
+      "x": 330,
+      "y": 160,
+      "width": 250,
+      "height": 120,
+      "color": "1"
+    },
+    {
+      "id": "prom",
+      "type": "text",
+      "text": "Prometheus\nMetrics",
+      "x": 700,
+      "y": 20,
+      "width": 220,
+      "height": 80,
+      "color": "4"
+    },
+    {
+      "id": "loki",
+      "type": "text",
+      "text": "Loki\nLogs",
+      "x": 700,
+      "y": 170,
+      "width": 220,
+      "height": 80,
+      "color": "3"
+    },
+    {
+      "id": "tempo",
+      "type": "text",
+      "text": "Tempo\nTraces",
+      "x": 700,
+      "y": 320,
+      "width": 220,
+      "height": 80,
+      "color": "5"
+    },
+    {
+      "id": "grafana",
+      "type": "text",
+      "text": "Grafana\nDashboards & Explore",
+      "x": 1030,
+      "y": 160,
+      "width": 240,
+      "height": 120,
+      "color": "6"
+    },
+    {
+      "id": "headlamp",
+      "type": "text",
+      "text": "Headlamp\nKubernetes UI",
+      "x": 1030,
+      "y": 360,
+      "width": 240,
+      "height": 80,
+      "color": "4"
+    },
+    {
+      "id": "teams",
+      "type": "text",
+      "text": "Platform & App Teams\nTroubleshooting\nReliability",
+      "x": 1360,
+      "y": 210,
+      "width": 260,
+      "height": 120,
+      "color": "6"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "app",
+      "fromSide": "right",
+      "toNode": "alloy",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "alloy",
+      "fromSide": "right",
+      "toNode": "prom",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "alloy",
+      "fromSide": "right",
+      "toNode": "loki",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "alloy",
+      "fromSide": "right",
+      "toNode": "tempo",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "prom",
+      "fromSide": "right",
+      "toNode": "grafana",
+      "toSide": "left"
+    },
+    {
+      "id": "e6",
+      "fromNode": "loki",
+      "fromSide": "right",
+      "toNode": "grafana",
+      "toSide": "left"
+    },
+    {
+      "id": "e7",
+      "fromNode": "tempo",
+      "fromSide": "right",
+      "toNode": "grafana",
+      "toSide": "left"
+    },
+    {
+      "id": "e8",
+      "fromNode": "grafana",
+      "fromSide": "right",
+      "toNode": "teams",
+      "toSide": "left"
+    },
+    {
+      "id": "e9",
+      "fromNode": "headlamp",
+      "fromSide": "right",
+      "toNode": "teams",
+      "toSide": "left"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+flowchart TD
+    App[Sample App<br/>Metrics • Logs • Traces] --> Alloy[Grafana Alloy<br/>Telemetry Collector]
+    Alloy --> Prom[Prometheus<br/>Metrics]
+    Alloy --> Loki[Loki<br/>Logs]
+    Alloy --> Tempo[Tempo<br/>Traces]
+    Prom --> Grafana[Grafana]
+    Loki --> Grafana
+    Tempo --> Grafana
+    K8s[Kubernetes Cluster] --> Alloy
+    K8s --> Headlamp[Headlamp]
+    Grafana --> Teams[Platform / App Teams]
+    Headlamp --> Teams

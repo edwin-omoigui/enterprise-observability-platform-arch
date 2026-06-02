@@ -1,0 +1,6 @@
+apiVersion: v2
+name: sample-otel-app
+description: Sample app emitting metrics, logs, and traces.
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

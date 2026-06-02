@@ -1,0 +1,6 @@
+service:
+  type: ClusterIP
+
+config:
+  oidc:
+    enabled: false

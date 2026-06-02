@@ -1,0 +1,15 @@
+tempo:
+  retention: 24h
+
+persistence:
+  enabled: false
+
+service:
+  type: ClusterIP
+
+traces:
+  otlp:
+    http:
+      enabled: true
+    grpc:
+      enabled: true

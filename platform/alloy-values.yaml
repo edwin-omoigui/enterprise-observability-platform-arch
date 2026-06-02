@@ -1,0 +1,101 @@
+controller:
+  type: deployment
+
+alloy:
+  configMap:
+    create: true
+    content: |
+      logging {
+        level = "info"
+        format = "logfmt"
+      }
+
+      discovery.kubernetes "pods" {
+        role = "pod"
+      }
+
+      discovery.relabel "pod_logs" {
+        targets = discovery.kubernetes.pods.targets
+
+        rule {
+          source_labels = ["__meta_kubernetes_namespace"]
+          target_label  = "namespace"
+        }
+
+        rule {
+          source_labels = ["__meta_kubernetes_pod_name"]
+          target_label  = "pod"
+        }
+
+        rule {
+          source_labels = ["__meta_kubernetes_pod_label_app"]
+          target_label  = "app"
+        }
+      }
+
+      loki.source.kubernetes "pod_logs" {
+        targets    = discovery.relabel.pod_logs.output
+        forward_to = [loki.write.default.receiver]
+      }
+
+      loki.write "default" {
+        endpoint {
+          url = "http://loki-gateway.observability.svc.cluster.local/loki/api/v1/push"
+        }
+      }
+
+      prometheus.scrape "sample_app" {
+        targets = [{
+          "__address__" = "sample-otel-app.demo.svc.cluster.local:80",
+          "app" = "sample-otel-app",
+        }]
+        metrics_path = "/metrics"
+        forward_to = [prometheus.remote_write.default.receiver]
+      }
+
+      prometheus.remote_write "default" {
+        endpoint {
+          url = "http://prometheus-server.observability.svc.cluster.local/api/v1/write"
+        }
+      }
+
+      otelcol.receiver.otlp "default" {
+        http {
+          endpoint = "0.0.0.0:4318"
+        }
+        grpc {
+          endpoint = "0.0.0.0:4317"
+        }
+
+        output {
+          traces = [otelcol.processor.batch.default.input]
+        }
+      }
+
+      otelcol.processor.batch "default" {
+        output {
+          traces = [otelcol.exporter.otlp.tempo.input]
+        }
+      }
+
+      otelcol.exporter.otlp "tempo" {
+        client {
+          endpoint = "tempo.observability.svc.cluster.local:4317"
+          tls {
+            insecure = true
+          }
+        }
+      }
+
+service:
+  enabled: true
+  type: ClusterIP
+  ports:
+    - name: otlp-grpc
+      port: 4317
+      targetPort: 4317
+      protocol: TCP
+    - name: otlp-http
+      port: 4318
+      targetPort: 4318
+      protocol: TCP
