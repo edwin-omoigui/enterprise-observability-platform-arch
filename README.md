@@ -16,6 +16,9 @@ It includes:
 
 
 ---
+## Enterprise Observability Platform
+
+![Observability Platform](./diagrams/observability-platform.png)
 
 ## Architecture
 
