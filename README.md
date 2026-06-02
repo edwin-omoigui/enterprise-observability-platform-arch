@@ -14,7 +14,6 @@ It includes:
 - Headlamp for Kubernetes visibility
 - A sample app that emits metrics, logs, and traces
 
-> This repo is generalized and contains no company-specific, customer-specific, IP, or production environment details.
 
 ---
 
